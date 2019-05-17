@@ -11,10 +11,10 @@ public class MenuItem {
                     boolean vegetarian,
                     double price
     ) {
-        name = name;
-        description = description;
-        vegetarian = vegetarian;
-        price = price;
+        this.name = name;
+        this.description = description;
+        this.vegetarian = vegetarian;
+        this.price = price;
     }
 
     public String getName() {
