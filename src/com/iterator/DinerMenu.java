@@ -38,4 +38,8 @@ public class DinerMenu {
         }
 
     }
+
+    public IIterator createIterator() {
+        return new DinerMenuIterator(menuItems);
+    }
 }
