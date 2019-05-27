@@ -1,13 +1,13 @@
 package com.iterator;
 
-import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Iterator;
 
-public class PancakeHouseMenu implements IMenu {
-    private ArrayList menuItems;
+public class CafeMenu implements IMenu {
+    Hashtable menuItems;
 
-    public PancakeHouseMenu() {
-        menuItems = new ArrayList();
+    public CafeMenu() {
+        menuItems = new Hashtable();
 
         addItem("First dish",
                 "Fist description",
@@ -27,10 +27,10 @@ public class PancakeHouseMenu implements IMenu {
 
     public void addItem(String name, String description, boolean vegeterian, double price) {
         MenuItem menuItem = new MenuItem(name, description, vegeterian, price);
-        menuItems.add(menuItem);
+        menuItems.put(menuItem.getName(), menuItem);
     }
 
-    public Iterator createIterator () {
-        return menuItems.iterator();
+    public Iterator createIterator() {
+        return menuItems.values().iterator();
     }
 }
