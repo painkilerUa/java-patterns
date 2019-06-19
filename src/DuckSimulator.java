@@ -3,15 +3,17 @@ import com.compound.*;
 public class DuckSimulator {
     public static void main(String[] args) {
         DuckSimulator simulator = new DuckSimulator();
-        simulator.simulate();
+        CountingDuckFactory countingDuckFactory = new CountingDuckFactory();
+        GooseFactory gooseFactory = new GooseFactory();
+        simulator.simulate(countingDuckFactory, gooseFactory);
     }
 
-    void simulate() {
-        Quackable mallardDuck = new QuackCounter(new MalardDuck());
-        Quackable redHeadDuck = new QuackCounter(new ReadHeadDuck());
-        Quackable duckCall = new QuackCounter(new DuckCall());
-        Quackable rubberDuck = new QuackCounter(new RubberDuck());
-        Quackable goose = new QuackCounter(new GooseAdapter(new Goose()));
+    void simulate(AbstractDuckFactory duckFactory, GooseFactory gooseFactory) {
+        Quackable mallardDuck = duckFactory.createMallardDuck();
+        Quackable redHeadDuck = duckFactory.createRedheadDuck();
+        Quackable duckCall = duckFactory.createDuckCall();
+        Quackable rubberDuck = duckFactory.createRubberDuck();
+        Quackable goose = gooseFactory.createGoose();
 
         System.out.println("\nDuck simulator");
 
